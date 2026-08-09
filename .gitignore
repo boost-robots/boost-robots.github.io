@@ -1,0 +1,18 @@
+.DS_Store
+**/.DS_Store
+Thumbs.db
+.vscode/
+.idea/
+
+# Jekyll
+_site/
+.jekyll-cache/
+.jekyll-metadata
+.bundle/
+vendor/
+
+# Uncompressed video backups (too large for GitHub's 100MB limit)
+*_original.mp4
+
+# Uncompressed source clips for the result videos
+_originals/

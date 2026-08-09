@@ -1,0 +1,16 @@
+title: "BooST"
+description: "BooST: Bridging Semantics and Motions for Efficient Skill Transfer"
+
+# The site ships its own static HTML/CSS/JS (index.html, static/**).
+# Files without YAML front matter are copied verbatim, so no theme is set.
+exclude:
+  - README.md
+  - Gemfile
+  - Gemfile.lock
+  - vendor
+  # Uncompressed sources. Jekyll ignores .gitignore, so without these the build
+  # copies ~380MB of originals into _site. Globs rather than a file list so newly
+  # added source PDFs/originals are excluded automatically.
+  - static/results/realworld/_originals
+  - "static/**/*_original.mp4"
+  - "static/**/*.pdf"

@@ -1,0 +1,663 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="description" content="BooST: Bridging Semantics and Motions for Efficient Skill Transfer">
+  <meta name="keywords" content="TODO, keywords">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>BooST: Bridging Semantics and Motions for Efficient Skill Transfer</title>
+
+  <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro"
+        rel="stylesheet">
+
+  <link rel="stylesheet" href="./static/css/bulma.min.css">
+  <link rel="stylesheet" href="./static/css/bulma-carousel.min.css">
+  <link rel="stylesheet" href="./static/css/bulma-slider.min.css">
+  <link rel="stylesheet"
+        href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
+  <link rel="stylesheet" href="./static/css/index.css">
+  <link rel="icon" type="image/png" sizes="32x32" href="./static/images/favicon-32.png">
+  <link rel="icon" type="image/png" sizes="192x192" href="./static/images/favicon-192.png">
+  <link rel="apple-touch-icon" href="./static/images/apple-touch-icon.png">
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script defer src="./static/js/fontawesome.all.min.js"></script>
+  <script src="./static/js/bulma-carousel.min.js"></script>
+  <script src="./static/js/bulma-slider.min.js"></script>
+  <script src="./static/js/index.js"></script>
+</head>
+<body>
+
+<nav class="navbar" role="navigation" aria-label="main navigation">
+  <div class="navbar-brand">
+    <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false">
+      <span aria-hidden="true"></span>
+      <span aria-hidden="true"></span>
+      <span aria-hidden="true"></span>
+    </a>
+  </div>
+  <div class="navbar-menu">
+    <div class="navbar-start" style="flex-grow: 1; justify-content: center;">
+      <a class="navbar-item" href="https://ju-suk.github.io/">
+        <span class="icon"><i class="fas fa-home"></i></span>
+      </a>
+    </div>
+  </div>
+</nav>
+
+
+<section class="hero">
+  <div class="hero-body">
+    <div class="container is-max-desktop">
+      <div class="columns is-centered">
+        <div class="column has-text-centered">
+          <!-- TODO: title + subtitle -->
+          <h1 class="title is-1 publication-title"><strong>BooST</strong>: Bridging Semantics and Motions for Efficient Skill Transfer</h1>
+          <!-- TODO: authors -->
+          <div class="is-size-5 publication-authors">
+            <span class="author-block">
+              <a href="https://ju-suk.github.io">Jusuk Lee</a><sup>1</sup></span>&emsp;
+            <span class="author-block">
+              <a href="https://dscho1234.github.io">Daesol Cho</a><sup>2</sup></span>&emsp;
+            <span class="author-block">
+              <a href="https://jhshin00.github.io/">Jonghun Shin</a><sup>1</sup></span>&emsp;
+            <span class="author-block">
+              <a href="https://syeon-yoo.github.io/">Seungyeon Yoo</a><sup>1</sup></span>
+          </div>
+          <div class="is-size-5 publication-authors">
+            <span class="author-block">
+              <a href="https://jonghaepark.github.io/">Jonghae Park</a><sup>1</sup></span>&emsp;
+            <span class="author-block">
+              <a href="">Taekbeom Lee</a><sup>1</sup></span>&emsp;
+            <span class="author-block">
+              <a href="https://scholar.google.co.kr/citations?user=TLQUwIMAAAAJ&hl=en">H. Jin Kim</a><sup>1</sup></span>
+          </div>
+
+          <div class="is-size-5 publication-authors">
+            <span class="author-block"><sup>1</sup>Seoul National University</span>&emsp;
+            <span class="author-block"><sup>2</sup>Georgia Institute of Technology</span>
+          </div>
+
+          <div class="is-size-5 publication-venue">
+            IEEE Robotics and Automation Letters (RA-L), 2026
+          </div>
+
+          <div class="column has-text-centered">
+            <div class="publication-links">
+              <!-- Paper Link. TODO: set href -->
+              <span class="link-block">
+                <a href="#"
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon"><i class="fas fa-file-pdf"></i></span>
+                  <span>Paper</span>
+                </a>
+              </span>
+              <!-- arXiv Link. TODO: set href -->
+              <span class="link-block">
+                <a href="#"
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon"><i class="ai ai-arxiv"></i></span>
+                  <span>arXiv</span>
+                </a>
+              </span>
+              <!-- Code Link. TODO: set href -->
+              <span class="link-block">
+                <a href="https://github.com/boost-robots"
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon"><i class="fab fa-github"></i></span>
+                  <span>Code</span>
+                </a>
+              </span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- Teaser: TL;DR one-liner + overview video. TODO: drop teaser.mp4 under static/videos/ -->
+<section class="hero teaser">
+  <div class="container is-max-widescreen">
+    <div class="hero-body">
+      <h2 class="subtitle has-text-centered" style="font-size: 1.25rem; margin: 0 auto 1.5rem; max-width: 860px;">
+        <strong>TL;DR:</strong> <strong>BooST</strong> learns a <em>unified</em> skill representation that bridges
+        semantic intent (<em>what</em>) and motion dynamics (<em>how</em>), then distills it into a lightweight
+        policy &mdash; enabling few-shot adaptation across new scenes, tasks, and even cross-embodiments, with
+        robustness to dynamic visual distractors.
+      </h2>
+      <video id="teaser"
+             src="./static/videos/teaser.mp4"
+             poster="./static/images/teaser_poster.webp"
+             controls preload="metadata" playsinline
+             style="display:block; width:100%; max-width:860px; margin:0 auto;">
+        Your browser does not support the video tag.
+      </video>
+    </div>
+  </div>
+</section>
+
+
+<section class="section section-alt">
+  <div class="container is-max-widescreen">
+    <!-- Abstract. -->
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-four-fifths">
+        <h2 class="title is-3">Abstract</h2>
+        <div class="content has-text-justified">
+          <p>
+            Skill abstraction&mdash;the process of learning reusable and temporally extended behaviors&mdash;has
+            emerged as a key paradigm for improving sample efficiency and generalization in robot learning.
+            For efficient skill transfer to real robots, learned skills must generalize across tasks and
+            domains, remain robust to visual and dynamic perturbations, and be efficient enough for practical
+            deployment. However, existing methods typically satisfy only a subset of these properties, as they
+            capture either high-level semantic intent (<em>what</em>) or low-level motion dynamics
+            (<em>how</em>). This incomplete skill transfer yields weak priors for policy learning, thereby
+            demanding substantial in-domain data for downstream adaptation. To address these challenges, we
+            introduce BooST, a two-stage framework that explicitly bridges semantics and motions to satisfy
+            all three desiderata. BooST first leverages a cross-modal VQ-VAE to capture both semantic intent
+            and motion dynamics, yielding a unified skill representation. It then distills this representation
+            into a lightweight policy for efficient downstream adaptation to new tasks. Extensive experiments
+            across simulation and real-robot settings demonstrate that BooST achieves superior few-shot
+            adaptation, cross-domain skill transfer, and robustness to dynamic visual distractors, while
+            maintaining a lightweight yet expressive design suitable for real-world deployment.
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- Method -->
+<section class="section" id="Method">
+  <div class="container is-max-widescreen">
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-four-fifths">
+        <h2 class="title is-3">Method of BooST</h2>
+      </div>
+    </div>
+
+    <img src="./static/images/framework.webp"
+         alt="BooST two-stage framework: unified skill pretraining and downstream adaptation"
+         style="display:block; width:100%; margin: 0.5rem auto 2rem; border-radius: 8px;">
+
+    <div class="columns is-centered">
+      <div class="column is-half">
+        <div class="stage-card">
+        <p class="stage-badge"><span class="stage-num">1</span> Stage I</p>
+        <h3 class="title is-5">Unified Skill Pretraining</h3>
+        <div class="content has-text-justified">
+          <p>
+            A cross-modal VQ-VAE learns a <em>single shared codebook</em> through two pathways. The
+            <strong>visuo-linguistic pathway</strong> fuses patch-level CLIP ViT tokens with the language
+            instruction via temperature-scaled cross-attention, capturing semantic intent (<em>what</em>).
+            The <strong>action pathway</strong> encodes action trajectories, capturing motion dynamics
+            (<em>how</em>). The two are optimized alternately so neither dominates the codebook.
+          </p>
+          <p>
+            The only supervisory signal is <strong>action reconstruction</strong> &mdash; not pixel
+            reconstruction. That choice is what makes the representation ignore visual detail irrelevant to
+            the task, and it is why BooST stays robust when the pretraining data contains moving distractors.
+          </p>
+        </div>
+        </div>
+      </div>
+      <div class="column is-half">
+        <div class="stage-card is-stage2">
+        <p class="stage-badge"><span class="stage-num">2</span> Stage II</p>
+        <h3 class="title is-5">Downstream Adaptation</h3>
+        <div class="content has-text-justified">
+          <p>
+            The pretrained skill encoder is frozen and used as a teacher. Its predicted skills become
+            pseudo-labels for a lightweight <strong>causal skill prior</strong>, and a small
+            <strong>low-level policy</strong> is behavior-cloned on top of the sampled skills. A stop-gradient
+            between them keeps the prior supervised solely by the fixed encoder.
+          </p>
+          <p>
+            Unlike Stage I, this stage sees only past observations, since future frames are unavailable at
+            execution time. Both components are small Transformers trained on a modest in-domain dataset, and
+            the resulting model runs at roughly <strong>60 Hz</strong> &mdash; fast enough to deploy on a real
+            robot.
+          </p>
+        </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- Results -->
+<section class="section" id="Results">
+  <div class="container is-max-widescreen">
+    <h2 class="title is-3 has-text-centered">Results</h2>
+
+    <!-- 1) Q1: Few-shot adaptation in simulation -->
+    <div class="experiments-block" data-group="simulation">
+      <h3 class="title is-4 has-text-centered">Few-Shot Adaptation in Simulation</h3>
+      <p class="experiments-intro">
+        BooST outperforms every skill-based baseline on all four LIBERO benchmarks &mdash; and the margin
+        <em>grows</em> as demonstrations get scarcer, which is precisely what a good skill prior should do.
+        On LIBERO-90, the most diverse benchmark, the relative gain over the second-best method goes from
+        <strong>+41%</strong> at 50 demos to <strong>+140%</strong> at 10.
+      </p>
+
+      <div class="tabs is-centered experiments-tabs pill-tabs">
+        <ul>
+          <li class="is-active" data-tab="libero90"><a>LIBERO-90</a></li>
+          <li data-tab="goal"><a>Goal</a></li>
+          <li data-tab="object"><a>Object</a></li>
+          <li data-tab="spatial"><a>Spatial</a></li>
+        </ul>
+      </div>
+
+      <div class="experiments-panel is-active" data-tab="libero90">
+        <p class="result-table-title">LIBERO-90 &mdash; success rate by number of demonstrations</p>
+        <div class="table-scroll">
+          <table class="table is-bordered is-narrow is-fullwidth result-table">
+            <thead>
+              <tr><th>Method</th><th>50 demos</th><th>20 demos</th><th>10 demos</th></tr>
+            </thead>
+            <tbody>
+              <tr><td>Diffusion Policy</td><td>0.60</td><td>0.33</td><td>0.24</td></tr>
+              <tr><td>VQ-BeT</td><td>0.64</td><td>0.51</td><td>0.29</td></tr>
+              <tr><td>QueST</td><td>0.51</td><td>0.37</td><td>0.28</td></tr>
+              <tr><td>LISA</td><td>0.00</td><td>0.00</td><td>0.00</td></tr>
+              <tr><td>EXTRACT</td><td>0.22</td><td>0.20</td><td>0.14</td></tr>
+              <tr>
+                <td>BooST (Ours)</td>
+                <td class="result-mean"><strong>0.91</strong> <small>(+41%)</small></td>
+                <td class="result-mean"><strong>0.82</strong> <small>(+59%)</small></td>
+                <td class="result-mean"><strong>0.70</strong> <small>(+140%)</small></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <p class="experiments-caption">
+          Mean success rate over five seeds, 50 rollouts per task. Relative gain is over the second-best method.
+        </p>
+      </div>
+
+      <div class="experiments-panel" data-tab="goal">
+        <p class="result-table-title">LIBERO-Goal &mdash; success rate by number of demonstrations</p>
+        <div class="table-scroll">
+          <table class="table is-bordered is-narrow is-fullwidth result-table">
+            <thead>
+              <tr><th>Method</th><th>50 demos</th><th>20 demos</th><th>10 demos</th></tr>
+            </thead>
+            <tbody>
+              <tr><td>Diffusion Policy</td><td>0.56</td><td>0.47</td><td>0.41</td></tr>
+              <tr><td>VQ-BeT</td><td>0.73</td><td>0.45</td><td>0.32</td></tr>
+              <tr><td>QueST</td><td>0.30</td><td>0.25</td><td>0.22</td></tr>
+              <tr><td>LISA</td><td>0.00</td><td>0.00</td><td>0.00</td></tr>
+              <tr><td>EXTRACT</td><td>0.09</td><td>0.06</td><td>0.04</td></tr>
+              <tr>
+                <td>BooST (Ours)</td>
+                <td class="result-mean"><strong>0.92</strong> <small>(+25%)</small></td>
+                <td class="result-mean"><strong>0.81</strong> <small>(+74%)</small></td>
+                <td class="result-mean"><strong>0.68</strong> <small>(+65%)</small></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <p class="experiments-caption">
+          Mean success rate over five seeds, 50 rollouts per task. Relative gain is over the second-best method.
+        </p>
+      </div>
+
+      <div class="experiments-panel" data-tab="object">
+        <p class="result-table-title">LIBERO-Object &mdash; success rate by number of demonstrations</p>
+        <div class="table-scroll">
+          <table class="table is-bordered is-narrow is-fullwidth result-table">
+            <thead>
+              <tr><th>Method</th><th>50 demos</th><th>20 demos</th><th>10 demos</th></tr>
+            </thead>
+            <tbody>
+              <tr><td>Diffusion Policy</td><td>0.36</td><td>0.25</td><td>0.20</td></tr>
+              <tr><td>VQ-BeT</td><td>0.36</td><td>0.32</td><td>0.16</td></tr>
+              <tr><td>QueST</td><td>0.11</td><td>0.06</td><td>0.08</td></tr>
+              <tr><td>LISA</td><td>0.00</td><td>0.00</td><td>0.00</td></tr>
+              <tr><td>EXTRACT</td><td>0.88</td><td>0.69</td><td>0.51</td></tr>
+              <tr>
+                <td>BooST (Ours)</td>
+                <td class="result-mean"><strong>0.95</strong> <small>(+8%)</small></td>
+                <td class="result-mean"><strong>0.85</strong> <small>(+24%)</small></td>
+                <td class="result-mean"><strong>0.80</strong> <small>(+57%)</small></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <p class="experiments-caption">
+          Mean success rate over five seeds, 50 rollouts per task. Relative gain is over the second-best method.
+        </p>
+      </div>
+
+      <div class="experiments-panel" data-tab="spatial">
+        <p class="result-table-title">LIBERO-Spatial &mdash; success rate by number of demonstrations</p>
+        <div class="table-scroll">
+          <table class="table is-bordered is-narrow is-fullwidth result-table">
+            <thead>
+              <tr><th>Method</th><th>50 demos</th><th>20 demos</th><th>10 demos</th></tr>
+            </thead>
+            <tbody>
+              <tr><td>Diffusion Policy</td><td>0.74</td><td>0.50</td><td>0.42</td></tr>
+              <tr><td>VQ-BeT</td><td>0.80</td><td>0.63</td><td>0.37</td></tr>
+              <tr><td>QueST</td><td>0.28</td><td>0.21</td><td>0.10</td></tr>
+              <tr><td>LISA</td><td>0.00</td><td>0.00</td><td>0.00</td></tr>
+              <tr><td>EXTRACT</td><td>0.75</td><td>0.56</td><td>0.29</td></tr>
+              <tr>
+                <td>BooST (Ours)</td>
+                <td class="result-mean"><strong>0.91</strong> <small>(+13%)</small></td>
+                <td class="result-mean"><strong>0.80</strong> <small>(+27%)</small></td>
+                <td class="result-mean"><strong>0.60</strong> <small>(+43%)</small></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <p class="experiments-caption">
+          Mean success rate over five seeds, 50 rollouts per task. Relative gain is over the second-best method.
+        </p>
+      </div>
+    </div>
+
+    <!-- 2) Q2: Real-world cross-embodiment transfer -->
+    <div class="experiments-block" data-group="realworld">
+      <h3 class="title is-4 has-text-centered">Real-World Cross-Embodiment Transfer</h3>
+      <p class="experiments-intro">
+        Skills pretrained on a Franka Emika Panda transfer to a <strong>UR3</strong> with a different action
+        space, adapting from only <strong>five demonstrations per task</strong>. Low-level baselines (QueST, VQ-BeT) fail here
+        outright: their skills are tied to the joint-velocity action space they were pretrained on and cannot
+        reach a robot controlled in Cartesian end-effector space.
+      </p>
+
+      <div class="experiments-panel is-active" data-tab="realworld">
+        <img class="is-figure" src="./static/images/real_world.webp"
+             alt="UR3 success rates across four real-world manipulation tasks">
+
+        <div class="vla-carousel">
+          <button class="vla-arrow vla-prev" type="button" aria-label="Previous">&lsaquo;</button>
+          <button class="vla-arrow vla-next" type="button" aria-label="Next">&rsaquo;</button>
+
+          <div class="vla-slide is-active" data-slide="0">
+            <p class="vla-task-label">Task A</p>
+            <p class="vla-instruction">"Put the bread in the sink"</p>
+            <div class="columns is-multiline is-mobile is-centered is-vcentered compare-grid">
+              <div class="column is-half-mobile is-one-third-tablet has-text-centered">
+                <video src="./static/results/realworld/dp_1.mp4"
+                       poster="./static/experiments/placeholder.png"
+                       autoplay muted loop playsinline preload="none"></video>
+                <p class="compare-label">Diffusion Policy</p>
+                <p class="compare-status is-fail"><i class="fas fa-times-circle"></i></p>
+              </div>
+              <div class="column is-half-mobile is-one-third-tablet has-text-centered">
+                <video src="./static/results/realworld/quest_1.mp4"
+                       poster="./static/experiments/placeholder.png"
+                       autoplay muted loop playsinline preload="none"></video>
+                <p class="compare-label">QueST</p>
+                <p class="compare-status is-fail"><i class="fas fa-times-circle"></i></p>
+              </div>
+              <div class="column is-half-mobile is-one-third-tablet has-text-centered">
+                <video src="./static/results/realworld/vqbet_1.mp4"
+                       poster="./static/experiments/placeholder.png"
+                       autoplay muted loop playsinline preload="none"></video>
+                <p class="compare-label">VQ-BeT</p>
+                <p class="compare-status is-fail"><i class="fas fa-times-circle"></i></p>
+              </div>
+              <div class="column is-half-mobile is-one-third-tablet has-text-centered">
+                <video src="./static/results/realworld/extract_1.mp4"
+                       poster="./static/experiments/placeholder.png"
+                       autoplay muted loop playsinline preload="none"></video>
+                <p class="compare-label">EXTRACT</p>
+                <p class="compare-status is-fail"><i class="fas fa-times-circle"></i></p>
+              </div>
+              <div class="column is-half-mobile is-one-third-tablet has-text-centered">
+                <video src="./static/results/realworld/boost_1.mp4"
+                       poster="./static/experiments/placeholder.png"
+                       autoplay muted loop playsinline preload="none"></video>
+                <p class="compare-label">BooST (Ours)</p>
+                <p class="compare-status is-pass"><i class="fas fa-check-circle"></i></p>
+              </div>
+            </div>
+          </div>
+
+          <div class="vla-slide" data-slide="1">
+            <p class="vla-task-label">Task B</p>
+            <p class="vla-instruction">"Pick up the bread and place it on the plate"</p>
+            <div class="columns is-multiline is-mobile is-centered is-vcentered compare-grid">
+              <div class="column is-half-mobile is-one-third-tablet has-text-centered">
+                <video src="./static/results/realworld/dp_2.mp4"
+                       poster="./static/experiments/placeholder.png"
+                       autoplay muted loop playsinline preload="none"></video>
+                <p class="compare-label">Diffusion Policy</p>
+                <p class="compare-status is-fail"><i class="fas fa-times-circle"></i></p>
+              </div>
+              <div class="column is-half-mobile is-one-third-tablet has-text-centered">
+                <video src="./static/results/realworld/quest_2.mp4"
+                       poster="./static/experiments/placeholder.png"
+                       autoplay muted loop playsinline preload="none"></video>
+                <p class="compare-label">QueST</p>
+                <p class="compare-status is-fail"><i class="fas fa-times-circle"></i></p>
+              </div>
+              <div class="column is-half-mobile is-one-third-tablet has-text-centered">
+                <video src="./static/results/realworld/vqbet_2.mp4"
+                       poster="./static/experiments/placeholder.png"
+                       autoplay muted loop playsinline preload="none"></video>
+                <p class="compare-label">VQ-BeT</p>
+                <p class="compare-status is-fail"><i class="fas fa-times-circle"></i></p>
+              </div>
+              <div class="column is-half-mobile is-one-third-tablet has-text-centered">
+                <video src="./static/results/realworld/extract_2.mp4"
+                       poster="./static/experiments/placeholder.png"
+                       autoplay muted loop playsinline preload="none"></video>
+                <p class="compare-label">EXTRACT</p>
+                <p class="compare-status is-fail"><i class="fas fa-times-circle"></i></p>
+              </div>
+              <div class="column is-half-mobile is-one-third-tablet has-text-centered">
+                <video src="./static/results/realworld/boost_2.mp4"
+                       poster="./static/experiments/placeholder.png"
+                       autoplay muted loop playsinline preload="none"></video>
+                <p class="compare-label">BooST (Ours)</p>
+                <p class="compare-status is-pass"><i class="fas fa-check-circle"></i></p>
+              </div>
+            </div>
+          </div>
+
+          <div class="vla-slide" data-slide="2">
+            <p class="vla-task-label">Task C</p>
+            <p class="vla-instruction">"Move the moka pot on the stove"</p>
+            <div class="columns is-multiline is-mobile is-centered is-vcentered compare-grid">
+              <div class="column is-half-mobile is-one-third-tablet has-text-centered">
+                <video src="./static/results/realworld/dp_3.mp4"
+                       poster="./static/experiments/placeholder.png"
+                       autoplay muted loop playsinline preload="none"></video>
+                <p class="compare-label">Diffusion Policy</p>
+                <p class="compare-status is-fail"><i class="fas fa-times-circle"></i></p>
+              </div>
+              <div class="column is-half-mobile is-one-third-tablet has-text-centered">
+                <video src="./static/results/realworld/quest_3.mp4"
+                       poster="./static/experiments/placeholder.png"
+                       autoplay muted loop playsinline preload="none"></video>
+                <p class="compare-label">QueST</p>
+                <p class="compare-status is-fail"><i class="fas fa-times-circle"></i></p>
+              </div>
+              <div class="column is-half-mobile is-one-third-tablet has-text-centered">
+                <video src="./static/results/realworld/vqbet_3.mp4"
+                       poster="./static/experiments/placeholder.png"
+                       autoplay muted loop playsinline preload="none"></video>
+                <p class="compare-label">VQ-BeT</p>
+                <p class="compare-status is-fail"><i class="fas fa-times-circle"></i></p>
+              </div>
+              <div class="column is-half-mobile is-one-third-tablet has-text-centered">
+                <video src="./static/results/realworld/extract_3.mp4"
+                       poster="./static/experiments/placeholder.png"
+                       autoplay muted loop playsinline preload="none"></video>
+                <p class="compare-label">EXTRACT</p>
+                <p class="compare-status is-fail"><i class="fas fa-times-circle"></i></p>
+              </div>
+              <div class="column is-half-mobile is-one-third-tablet has-text-centered">
+                <video src="./static/results/realworld/boost_3.mp4"
+                       poster="./static/experiments/placeholder.png"
+                       autoplay muted loop playsinline preload="none"></video>
+                <p class="compare-label">BooST (Ours)</p>
+                <p class="compare-status is-pass"><i class="fas fa-check-circle"></i></p>
+              </div>
+            </div>
+          </div>
+
+          <div class="vla-slide" data-slide="3">
+            <p class="vla-task-label">Task D</p>
+            <p class="vla-instruction">"Put the pear on the plate"</p>
+            <div class="columns is-multiline is-mobile is-centered is-vcentered compare-grid">
+              <div class="column is-half-mobile is-one-third-tablet has-text-centered">
+                <video src="./static/results/realworld/dp_4.mp4"
+                       poster="./static/experiments/placeholder.png"
+                       autoplay muted loop playsinline preload="none"></video>
+                <p class="compare-label">Diffusion Policy</p>
+                <p class="compare-status is-fail"><i class="fas fa-times-circle"></i></p>
+              </div>
+              <div class="column is-half-mobile is-one-third-tablet has-text-centered">
+                <video src="./static/results/realworld/quest_4.mp4"
+                       poster="./static/experiments/placeholder.png"
+                       autoplay muted loop playsinline preload="none"></video>
+                <p class="compare-label">QueST</p>
+                <p class="compare-status is-fail"><i class="fas fa-times-circle"></i></p>
+              </div>
+              <div class="column is-half-mobile is-one-third-tablet has-text-centered">
+                <video src="./static/results/realworld/vqbet_4.mp4"
+                       poster="./static/experiments/placeholder.png"
+                       autoplay muted loop playsinline preload="none"></video>
+                <p class="compare-label">VQ-BeT</p>
+                <p class="compare-status is-fail"><i class="fas fa-times-circle"></i></p>
+              </div>
+              <div class="column is-half-mobile is-one-third-tablet has-text-centered">
+                <video src="./static/results/realworld/extract_4.mp4"
+                       poster="./static/experiments/placeholder.png"
+                       autoplay muted loop playsinline preload="none"></video>
+                <p class="compare-label">EXTRACT</p>
+                <p class="compare-status is-fail"><i class="fas fa-times-circle"></i></p>
+              </div>
+              <div class="column is-half-mobile is-one-third-tablet has-text-centered">
+                <video src="./static/results/realworld/boost_4.mp4"
+                       poster="./static/experiments/placeholder.png"
+                       autoplay muted loop playsinline preload="none"></video>
+                <p class="compare-label">BooST (Ours)</p>
+                <p class="compare-status is-pass"><i class="fas fa-check-circle"></i></p>
+              </div>
+            </div>
+          </div>
+
+          <div class="vla-dots">
+            <div class="vla-dot is-active"></div>
+            <div class="vla-dot"></div>
+            <div class="vla-dot"></div>
+            <div class="vla-dot"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 3) Q3: Robustness to dynamic visual distractors -->
+    <div class="experiments-block" data-group="robustness">
+      <h3 class="title is-4 has-text-centered">Robustness to Dynamic Visual Distractors</h3>
+      <p class="experiments-intro">
+        We pretrain on a LIBERO-90 variant with animated human distractors injected into every episode.
+        Latent-action methods that reconstruct <em>images</em> absorb this background motion into their
+        representation and degrade. BooST counters this with two components: the visuo-linguistic pathway
+        extracts task-relevant visual features conditioned on the instruction, and supervision comes from
+        reconstructing <em>actions</em> rather than pixels. Together these keep the representation focused on
+        the agent's own behavior &mdash; what it <strong>did</strong> rather than what merely
+        <strong>moved</strong>.
+      </p>
+
+      <div class="tabs is-centered experiments-tabs pill-tabs">
+        <ul>
+          <li class="is-active" data-tab="table"><a>Success rates</a></li>
+          <li data-tab="viz"><a>Skill visualization</a></li>
+        </ul>
+      </div>
+
+      <div class="experiments-panel is-active" data-tab="table">
+        <p class="result-table-title">Pretrained with distractors, evaluated on standard LIBERO</p>
+        <div class="table-scroll">
+          <table class="table is-bordered is-narrow is-fullwidth result-table">
+            <thead>
+              <tr>
+                <th>Method</th><th>90</th><th>Goal</th><th>Object</th><th>Spatial</th>
+                <th class="result-mean">Avg.</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr><td>LAPA</td><td>0.68</td><td>0.69</td><td>0.91</td><td>0.87</td><td class="result-mean">0.79</td></tr>
+              <tr><td>UniVLA</td><td>0.62</td><td>0.49</td><td>0.90</td><td>0.80</td><td class="result-mean">0.70</td></tr>
+              <tr>
+                <td>BooST (Ours)</td>
+                <td><strong>0.89</strong></td><td><strong>0.88</strong></td>
+                <td><strong>0.97</strong></td><td><strong>0.88</strong></td>
+                <td class="result-mean"><strong>0.90</strong></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <div class="experiments-panel" data-tab="viz">
+        <img class="is-figure" src="./static/images/test_time_distractor.webp"
+             alt="Skill selection under test-time dynamic human distractors">
+        <p class="experiments-caption">
+          Pretrained on distractor-augmented LIBERO-90, evaluated on Goal and Object with unseen distractors
+          present at test time. The encoder keeps selecting the same skill for a given sub-behavior.
+        </p>
+      </div>
+    </div>
+
+    <!-- 4) Fig. 4: qualitative skill transfer -->
+    <div class="experiments-block" data-group="skills">
+      <h3 class="title is-4 has-text-centered">What the Learned Skills Look Like</h3>
+      <p class="experiments-intro">
+        Each row is one skill from the shared codebook, executed in four different domains. Semantic intent
+        and motion dynamics stay consistent across visual scenes and embodiments.
+      </p>
+
+      <div class="experiments-panel is-active" data-tab="skills">
+        <img class="is-figure" src="./static/images/experiment_main_figure_revised.webp"
+             alt="Three learned skills executed across DROID, LIBERO, UR3, and a human hand">
+        <p class="experiments-caption">
+          Left to right: the source domain (DROID), then LIBERO, the UR3, and a human hand.
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<section class="section" id="BibTeX">
+  <div class="container is-max-desktop content">
+    <h2 class="title">BibTeX</h2>
+    <pre><code>@article{boost2026,
+  title={BOOST: Subtitle Goes Here (TBD)},
+  author={TBD},
+  journal={arXiv preprint arXiv:XXXX.XXXXX},
+  year={2026},
+}</code></pre>
+  </div>
+</section>
+
+
+<footer class="footer">
+  <div class="container">
+    <div class="content has-text-centered">
+      <p>
+        This page uses the <a href="https://github.com/nerfies/nerfies.github.io">Nerfies project page template</a>
+        and is licensed under a <a rel="license"
+        href="http://creativecommons.org/licenses/by-sa/4.0/">Creative Commons Attribution-ShareAlike 4.0 International License</a>.
+      </p>
+    </div>
+  </div>
+</footer>
+
+<script src="./static/js/experiments.js"></script>
+
+</body>
+</html>
