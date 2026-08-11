@@ -238,10 +238,13 @@
     <div class="experiments-block" data-group="simulation">
       <h3 class="title is-4 has-text-centered">Few-Shot Adaptation in Simulation</h3>
       <p class="experiments-intro">
-        BooST outperforms every skill-based baseline on all four LIBERO benchmarks &mdash; and the margin
-        <em>grows</em> as demonstrations get scarcer, which is precisely what a good skill prior should do.
-        On LIBERO-90, the most diverse benchmark, the relative gain over the second-best method goes from
-        <strong>+41%</strong> at 50 demos to <strong>+140%</strong> at 10.
+        Skills are pretrained on DROID &mdash; 76k Franka teleoperation trajectories in <em>joint velocity</em>
+        space &mdash; and transferred to LIBERO, which is controlled in <em>Cartesian end-effector</em> space,
+        with no LIBERO data seen during pretraining. Even across that gap BooST outperforms every skill-based
+        baseline on all four benchmarks, and the margin <em>grows</em> as demonstrations get scarcer &mdash;
+        precisely what a good skill prior should do. On LIBERO-90, the most diverse benchmark, the relative
+        gain over the second-best method goes from <strong>+41%</strong> at 50 demos to
+        <strong>+140%</strong> at 10.
       </p>
 
       <div class="tabs is-centered experiments-tabs pill-tabs">
